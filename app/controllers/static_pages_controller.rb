@@ -11,8 +11,6 @@ class StaticPagesController < ApplicationController
   def correct_user
     if !current_user.present?
       redirect_to(root_path)
-    else
-      redirect_to(root_path) unless @user.id==current_user.id
     end
   end
 
