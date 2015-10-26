@@ -1,11 +1,23 @@
-<%= render 'header' %>
-<%= render 'call_to_action' %>
-<section class="no-padding" id="wear_section" style="border-bottom: 1px solid">
-  <!-- <div class="container-fuild text-center">
-    <div class="row no-gutter" id="users">
-      <%= render @wears %>
+<% if current_user.full_profile? %>
+  <%= render 'header' %>
+  <%= render 'call_to_action' %>
+  <section class="no-padding" id="wear_section" style="border-bottom: 1px solid">
+    <div class="container-fuild text-center">
+      <div class="row no-gutter" id="users">
+        <%= render @wears %>
+      </div>
+      <br>
+      <%= paginate @wears %>
     </div>
-    <br>
-    <%= paginate @wears %>
-  </div> -->
-</section>
+  </section>
+<% else %>
+  <header>
+    <div class="header-content">
+      <%= render 'common/alert' %>
+      <div class="user_update_page">
+        <h1 style="color:#222;">ユーザーの登録して下さい</h1>
+        <%= link_to "登録画面へ", edit_user_path(current_user.id), :class => "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </header>
+<% end %>

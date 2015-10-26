@@ -1,5 +1,5 @@
 class CreativesController < ApplicationController
   def index
-    @wears = Wear.all.page(params[:page])
+    @wears = Wear.all.order("created_at DESC").page(params[:page])
   end
 end
