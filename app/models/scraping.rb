@@ -5,18 +5,55 @@ class Scraping < ActiveRecord::Base
   def self.get_station
     url_ = []
     url = "http://www.navitime.co.jp"
-    first_url = "http://www.navitime.co.jp/category/list?categoryCode=0802001&addressCode=13"
+    max_num = 23
     agent = Mechanize.new
-    page = agent.get(first_url)
-    elements = page.search("div.area_list ul.address_list li.left a")
-    elements.each do |ele|
-      url_ << "http://www.navitime.co.jp#{ele.get_attribute('href')}"
+
+    1.upto(max_num) do |num|
+      first_url = "http://www.navitime.co.jp/category/list?categoryCode=0802001&addressCode=#{13100+num}&from=view.category.addressList"
+      page = agent.get(first_url)
+      elements = page.search("ul li.list_frame dl.list_item_frame dt.spot_name a")
+      elements.each do |ele|
+        p ele.inner_text
+        url_ << ele.inner_text
+        station = Station.where(:name =>"#{ele.inner_text}", :ward_id => num.to_i).first_or_initialize
+        station.save
+      end
+      if (num.to_i== 1 || 2 || 3 || 4 || 8 || 9 || 11 || 12 || 16 || 18 || 21)
+        second_url = "http://www.navitime.co.jp/category/list?categoryCode=0802001&addressCode=#{13100+num}&page=2&from=view.category.page.number"
+        page = agent.get(second_url)
+        elements = page.search("ul li.list_frame dl.list_item_frame dt.spot_name a")
+        elements.each do |ele|
+          p ele.inner_text
+          url_ << ele.inner_text
+          station = Station.where(:name =>"#{ele.inner_text}", :ward_id => num.to_i).first_or_initialize
+          station.save
+        end
+        if (num.to_i == 11)
+          third_url = "http://www.navitime.co.jp/category/list?categoryCode=0802001&addressCode=#{13100+num}&page=3&from=view.category.page.number"
+          page = agent.get(second_url)
+          elements = page.search("ul li.list_frame dl.list_item_frame dt.spot_name a")
+          elements.each do |ele|
+            p ele.inner_text
+            url_ << ele.inner_text
+            station = Station.where(:name =>"#{ele.inner_text}", :ward_id => num.to_i).first_or_initialize
+            station.save
+          end
+        end
+      end
+      p "#{num}--------------------------------"
     end
 
-    url_.each do |purl|
-      put_ward(purl)
-      @@i += 1
-    end
+    p url_
+
+    # elements = page.search("div.area_list ul.address_list li.left a")
+    # elements.each do |ele|
+    #   url_ << "http://www.navitime.co.jp#{ele.get_attribute('href')}"
+    # end
+
+    # url_.each do |purl|
+    #   # put_ward(purl)
+    #   @@i += 1
+    # end
   end
 
   def self.get_ward
@@ -61,14 +98,23 @@ class Scraping < ActiveRecord::Base
     Brand.where(:name => "").first_or_initialize
   end
 
-  def self.put_ward(url)
+  def self.put_ward
+    url_ = []
+    url = "http://www.metro.tokyo.jp/PROFILE/map_to.htm"
     agent = Mechanize.new
     page = agent.get(url)
-    elements = page.search("ul li.list_frame dl.list_item_frame dt.spot_name a")
-    elements.each do |ele|
-      station = Station.where(name: ele.inner_text.chomp,ward_id: @@i).first_or_initialize
-      station.save
+    ward_elements = page.search("td.bggreen")
+    ward_elements.each do |wele|
+      url_ << wele.inner_text
+      ward = Ward.where(name:wele.inner_text).first_or_initialize
+      ward.save
+      if wele.inner_text == "江戸川区"
+        break
+      end
     end
+    p url_
+    # w1 = Ward.where(:name => "千代田区").first_or_initialize
+    # w1.save
   end
 
   def self.count_station
