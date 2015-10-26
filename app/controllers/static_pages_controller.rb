@@ -9,7 +9,6 @@ class StaticPagesController < ApplicationController
   private
 
   def correct_user
-    @user = User.find(params[:id])
     if !current_user.present?
       redirect_to(root_path)
     else
