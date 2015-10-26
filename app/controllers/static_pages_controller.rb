@@ -6,8 +6,15 @@ class StaticPagesController < ApplicationController
     @users = User.where(:station_id => "#{current_user.station.id}").order("created_at DESC").page(params[:page])
   end
 
+  private
+
   def correct_user
-    redirect_to(root_path) unless user_signed_in?
+    @user = User.find(params[:id])
+    if !current_user.present?
+      redirect_to(root_path)
+    else
+      redirect_to(root_path) unless @user.id==current_user.id
+    end
   end
 
 end

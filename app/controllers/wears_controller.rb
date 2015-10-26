@@ -1,6 +1,6 @@
 class WearsController < ApplicationController
 
-  before_action :correct_user, only:[:new, :create, :show,:edit, :update]
+  before_action :correct_user
 
   def new
     @wear = Wear.new
@@ -24,7 +24,11 @@ class WearsController < ApplicationController
   private
 
   def correct_user
-    redirect_to(root_path) unless user_signed_in?
+    if !current_user.present?
+      redirect_to(root_path)
+    else
+       redirect_to(root_path) unless current_user.full_profile?
+    end
   end
 
   def create_params
