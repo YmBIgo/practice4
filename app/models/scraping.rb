@@ -1,4 +1,4 @@
-class Scraping
+class Scraping < ActiveRecord::Base
 
 @@i = 1
 

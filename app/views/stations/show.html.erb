@@ -2,7 +2,7 @@
   <div class="container text-center">
     <div class="station_page">
       <h1 class="btn btn-default btn-xl"><%= @station.name %>駅の服</h1>
-      <h3>(<%= @station.ward.name %>)</h3>
+      <%= link_to "この駅の利用しているユーザーを探す", usearch_path, :class =>"btn btn-default btn-xl btn_row" %>
     </div>
   </div>
 </aside>

@@ -1,6 +1,6 @@
 class WearsController < ApplicationController
 
-  before_action :correct_user, only:[:new, :create, :edit, :update]
+  before_action :correct_user, only:[:new, :create, :show,:edit, :update]
 
   def new
     @wear = Wear.new

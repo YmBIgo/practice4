@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <% if current_user.full_profile? %>
   <aside class="bg-dark">
     <div class="container text-center">
@@ -28,9 +29,10 @@
   <header>
     <div class="header-content">
       <div class="new_wear_page">
-        <h3>服の登録をする前に、<br>ユーザー情報の登録をして下さい</h3>
+        <h3>まずはユーザー情報の登録をして下さい</h3>
         <%= link_to "ユーザー情報を編集する", edit_user_path(current_user.id), :class => "btn btn-primary btn-lg scroll-page" %>
       </div>
     </div>
   </header>
+<% end %>
 <% end %>

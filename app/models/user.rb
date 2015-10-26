@@ -16,5 +16,4 @@ class User < ActiveRecord::Base
   def full_profile?
     family_name? && first_name? && station_id? && ward_id? && avatar?
   end
-
 end
