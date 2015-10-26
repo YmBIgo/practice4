@@ -23,6 +23,7 @@ hr {
     max-width: 50px;
     border-color: #f05f40;
     border-width: 3px;
+    margin:30px auto;
 }
 
 hr.light {
@@ -56,15 +57,30 @@ p {
     line-height: 1.5;
 }
 
+/* BEGIN */
+    .btn_row{
+        margin:10px;
+    }
+/* END */
+
     /* notice */
     .page_notice{
         margin:0 auto;
-        padding:100px 0 0 0;
+        /*padding:75px 0 0 0;*/
+        position:relative;
+        width:100%;
+        padding:20px;
         /*background: rgba(220,220,220,.8);*/
     }
 
-    #error_explanation{
+    .page_notice h2{
         margin:0 auto;
+        max-width:900px;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+
+    #error_explanation{
+        margin:10px auto;
         padding:40px 0 0 0;
         /*background: rgba(220,220,220,.8);*/
         h2{
@@ -240,7 +256,8 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
-    /* Form Layout */
+/* Form Layout */
+/* =begin Header Page Form */
     header .header-content .form-wrapper {
       background: rgba(220,220,220,.8);
       margin: 0 auto;
@@ -277,21 +294,171 @@ header .header-content .header-content-inner p {
       padding: 3px;
     }
 
-     header .header-content .form-wrapper .form-item input {
-      background: #fffafa;
-      border: none;
-      /*border-bottom: 2px solid #e9e9e9;*/
-      border-bottom:2px solid;
-      color: #666;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1em;
-      height: 35px;
-      transition: border-color 0.3s;
-      width: 100%;
-      border-radius:10px;
+     header .header-content .form-wrapper .form-item {
+        input{
+              /*background: #fffafa;*/
+              background:rgba(255,250,250,.4);
+              border: none;
+              /*border-bottom:1px solid;*/
+              color: #666;
+              font-family: 'Open Sans', sans-serif;
+              font-size: 1em;
+              height: 35px;
+              transition: border-color 0.3s;
+              width: 100%;
+              border-radius:10px;
+              }
+
+        select{
+            /*background: #fffafa;*/
+              background:rgba(255,250,250,.4);
+              border: none;
+              /*border-bottom:1px solid;*/
+              color: #666;
+              font-family: 'Open Sans', sans-serif;
+              font-size: 1em;
+              height: 35px;
+              transition: border-color 0.3s;
+              width: 100%;
+              border-radius:10px;
+        }
     }
 
-/* Header */
+/* =end Header Page Form */
+
+/* =begin User Header Page */
+
+    /* BEGIN service-box in header */
+    header .header-content .service-box{
+        background: rgba(220,220,220,.6);
+        border-radius: 10px;
+        h3{
+            color:#222;
+        }
+    }
+    header .header-content .service-box a{
+        display: block;
+        background: rgba(220,220,220,.6);
+        border-radius: 10px;
+        padding:5px 10px;
+        border:none;
+    }
+    header .header-content .service-box a:hover{
+        background-color: rgba(237,56,18,.5);
+    }
+    /* END service-box in header */
+
+/* =end User Page Header */
+
+/* =begin User Update Page Header */
+    header .header-content .user_update_page{
+        background: rgba(220,220,220,.6);
+        padding:5px;
+        width:370px;
+        margin-top:45px;
+        margin-right:auto;
+        margin-left:auto;
+        border-radius: 30px;
+        min-height:150px;
+        h3{
+            color:#222;
+            border-bottom: 1px solid;
+            padding-bottom:20px;
+        }
+    }
+/* =end User Update Page Header */
+
+/* =begin User Show Page Header */
+    header .header-content .show_user_page{
+        background: rgba(220,220,220,.6);
+        padding:10px;
+        width:370px;
+        margin-top:45px;
+        margin-right:auto;
+        margin-left:auto;
+        border-radius: 30px;
+        h2{
+            color:#222;
+            padding-bottom: 20px;
+            border-bottom:solid 1px;
+        }
+    }
+    .user_avatar{
+        padding-top:10px;
+        .img-responsive{
+            margin:0 auto;
+        }
+    }
+/* =end User Show Page Header */
+
+/* BEGIN User Show Page Wears Table */
+
+
+/* END User Show Page Wears Table */
+
+/* =begin Wear New Page Header */
+    header .header-content .new_wear_page{
+        background: rgba(220,220,220,.6);
+        padding-top:5px;
+        padding-bottom:20px;
+        width:370px;
+        margin-top:45px;
+        margin-right:auto;
+        margin-left:auto;
+        border-radius: 30px;
+        h3{
+            color:#222;
+        }
+        .wear_info{
+            border-bottom:1px solid #222;
+        }
+        .wear_info h3{
+            color:#222;
+            margin-bottom:10px;
+        }
+    }
+/* =end Wear New Page Header */
+
+/* =begin Ward Show Page Header */
+    header .header-content .ward_page{
+        background: rgba(220,220,220,.6);
+        padding:3px;
+        max-width:500px;
+        margin-top:45px;
+        margin-right:auto;
+        margin-left:auto;
+        border-radius: 30px;
+        h2{
+            color:#222;
+        }
+        a{
+            font-weight: 200;
+        }
+    }
+/* =end Ward Show Page Header */
+
+/* =begin Station Show Page Header */
+/*  also used in ward search and brand search */
+    header .header-content .station_page {
+        min-width:370px;
+        height:auto;
+        padding:10px;
+        background: rgba(220,220,220,.6);
+        margin: 60px auto;
+        border-radius: 30px;
+        h1{
+            color:#222;
+            margin: 10px auto;
+            border-bottom:1px solid;
+        }
+        table{
+            margin:20px auto;
+        }
+        h3{
+            color:#222;
+        }
+    }
+/* =end Station Show Page Header */
 
 @media(min-width:768px) {
     header {
@@ -343,16 +510,17 @@ header .header-content .header-content-inner p {
 .portfolio-box {
     display: block;
     position: relative;
-    margin: 0 auto;
-    max-width: 650px;
+    margin: 10px auto;
+    width: 300px;
+    height: 300px;
 }
 
 .portfolio-box .portfolio-box-caption {
     display: block;
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    width: 300px;
+    height: 300px;
     text-align: center;
     color: #fff;
     opacity: 0;
@@ -361,6 +529,41 @@ header .header-content .header-content-inner p {
     -moz-transition: all .35s;
     transition: all .35s;
 }
+
+/* BEGIN Wear Section Page */
+
+    .under_portfolio_box{
+        position:relative;
+        top:5px;
+    }
+
+    .portfolio-box .img-responsive{
+        display: block;
+        margin:auto;
+    }
+
+/*    .portfolio-box .img-responsive{
+        display: block;
+        margin:0 auto;
+    }
+
+    .portfolio-box .portfolio-box-wear a:hover{
+
+    }
+
+    .portfolio-box p{
+        border-top:1px solid;
+        position:relative;
+        top:310px;
+    }
+
+    .portfolio-box .portfolio-box-wear{
+        .img-responsive{
+        position:relative;
+        bottom:90px;
+        }
+    }*/
+/* END Wear Section Page */
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
     position: absolute;

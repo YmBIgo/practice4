@@ -1,0 +1,16 @@
+<div class="col-lg-4 col-sm-4 text-center">
+  <div class="portfolio-box">
+  <a href="/users/<%= user.id %>">
+    <%= image_tag user.avatar.url(:medium), :class => "img-responsive", :alt => "" %>
+    <div class="portfolio-box-caption">
+      <div class="portfolio-box-caption-content">
+        <div class="project-category text-faded">
+          <p>ユーザーのページに移動する</p>
+        </div>
+      </div>
+    </div>
+  </a>
+  </div>
+  <p class="under_portfolio_box"><%= link_to "#{user.family_name}#{user.first_name}",user_path(user.id) %>　<%= link_to "#{user.station.name}駅",station_path(user.station.id) %></p>
+</div>
+</div>

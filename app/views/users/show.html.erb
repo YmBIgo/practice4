@@ -1,4 +1,36 @@
-<header>
-    <div class="header-content">
+<% if current_user.full_profile? %>
+  <aside class="bg-dark">
+    <div class="container text-center">
+        <div class="show_user_page">
+          <h1 class="btn btn-default wow btn-xl btn-row"><%= "#{@user.family_name} #{@user.first_name}さん" %></h1>
+          <div class="user_avatar">
+            <%= image_tag @user.avatar.url(:medium), :class => "img-responsive", :alt => "" %>
+          </div>
+          <h3><%= link_to "#{@user.station.name}駅(#{@user.station.ward.name})",station_path(@user.station.id), :class => "btn btn-default btn-lg" %></h3>
+          <% if user_signed_in? %>
+            <% if @user.id == current_user.id %>
+              <h3><%= link_to "服を登録する", new_wear_path, :class => "btn btn-primary scroll-page btn-md btn_row" %>
+              <%= link_to "ユーザー情報を編集する",edit_user_path(current_user.id), :class => "btn btn-primary scroll-page btn-md" %></h3>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+  </aside>
+  <section class="no-padding">
+    <div class="container-fuild">
+      <div class="row no-gutter" id="users">
+        <%= render @wears %>
+      </div>
+      <%= paginate @wears %>
     </div>
-</header>
+  </section>
+<% else %>
+  <header>
+    <div class="header-content">
+      <div class="new_wear_page">
+        <h3>服の登録をする前に、<br>ユーザー情報の登録をして下さい</h3>
+        <%= link_to "ユーザー情報を編集する", edit_user_path(current_user.id), :class => "btn btn-primary btn-lg scroll-page" %>
+      </div>
+    </div>
+  </header>
+<% end %>

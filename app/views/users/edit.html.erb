@@ -1,0 +1,33 @@
+<header>
+  <div class="header-content">
+    <div class="form-wrapper" style="padding-left:2px;">
+      <h2>ユーザー情報編集</h2>
+      <%= form_for @user do |f| %>
+        <div class="form-item">
+          <%= f.label "苗字" %>
+          <%= f.text_field :family_name, :class => "form-control" %>
+        </div>
+        <div class="form-item">
+          <%= f.label "名前" %>
+          <%= f.text_field :first_name, :class => "form-control" %>
+        </div>
+        <div class="form-item">
+          <%= f.label "プロフィール画像" %>
+          <%= f.file_field :avatar, :class => "form-controll" %>
+        </div>
+        <div class="form-item">
+          <%= f.label "23区名" %>
+          <%= f.collection_select :ward_id, Ward.all, :id, :name, {:selected => @ward.id }, {:class => "form-control"}  %>
+        </div>
+        <div class="form-item">
+          <%= f.label "駅名" %>
+          <%= render partial: 'stations', locals: { ward_id: @ward.id} %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= f.submit "編集する",:class => 'btn btn-primary scroll-page' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>

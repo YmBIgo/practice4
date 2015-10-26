@@ -1,0 +1,25 @@
+<% if current_user != nil %>
+<aside class="bg-dark">
+  <div class="container text-center">
+    <% if current_user!=nil %>
+      <% if user_signed_in? %>
+        <h1 class="btn btn-default wow btn-xl"><%= Station.find(current_user.station.id).name %>駅の人</h1>
+        <h3>(<%= Station.find(current_user.station.id).ward.name %>)</h3>
+      <% end %>
+    <% end %>
+  </div>
+</aside>
+<section class="no-padding">
+  <div class="container-fuild">
+    <div class="row no-gutter">
+      <%= render @users %>
+    </div>
+  </div>
+</section>
+<% else %>
+<aside class="bg-dark">
+  <div class="container text-center">
+    <h1>ログインしてください</h1>
+  </div>
+</aside>
+<% end %>

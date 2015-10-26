@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">At Your Service</h2>
+                <h2 class="section-heading">私たちのサービス</h2>
                 <hr class="primary">
             </div>
         </div>
@@ -11,32 +11,43 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                    <h3>Sturdy Templates</h3>
-                    <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    <i class="fa fa-4x fa-user wow bounceIn text-primary"></i>
+                    <h3>まずは登録しよう！</h3>
+                    <p class="text-muted">登録はFaceBookでしかできません(嘘)</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                    <h3>Ready to Ship</h3>
-                    <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    <i class="fa fa-4x fa-opencart wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                    <h3>クローゼットに服を登録しよう</h3>
+                    <p class="text-muted">服を写真でとって、<br>月何円なら貸していいかを登録します。</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                    <h3>Up to Date</h3>
-                    <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    <i class="fa fa-4x fa-users wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                    <h3>服を探そう</h3>
+                    <p class="text-muted">欲しい服を探そう！<br>自分と同じ駅を利用している人のクローゼットから服を探せます！</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Made with Love</h3>
-                    <p class="text-muted">You have to make your websites with love these days!</p>
+                    <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                    <h3>メッセージを送ろう！</h3>
+                    <p class="text-muted">相手のFaceBookのアカウントに<br>服のリクエストのメッセージを送ろう！<br></p>
                 </div>
             </div>
+        </div>
+        <div class="text-center">
+            <div class="service-box">
+                <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                <h3>実際に服の貸し借りをしよう！</h3>
+                <p class="text-muted">服の貸し借りをしよう！延滞はしないでね！</p>
+            </div>
+            <% if current_user==nil %>
+                <hr>
+                <a href="/users/sign_up" class="btn btn-primary btn-xl wow tada btn_row page-scroll">登録しよう！</a>
+            <% end %>
         </div>
     </div>
 </section>

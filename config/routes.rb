@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "creatives#index"
+  # match '/wsearch', to: 'static_pages#wsearch',     via: 'get'
+  resources :users do
+    collection do
+      get :stations_select
+    end
+  end
   resources :users,     only:[:show ,:edit ,:update]
+  match '/usearch', to: 'static_pages#usearch',              via:'get'
+  resources :stations,  only:[:show]
+  resources :wards,     only:[:show]
+  resources :wears,     only:[:new, :create, :show, :edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

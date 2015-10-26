@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag 'creative/manifest.css', media: 'all' %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag 'creative/manifest.js' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,6 +20,11 @@
 
   <%= yield %>
 
+  <%= render 'creatives/bg_primary' %>
+  <%= render 'creatives/services' %>
+  <aside class="bg-dark">
+    <hr class="light">
+  </aside>
   <%= render 'creatives/contact' %>
 
 </body>

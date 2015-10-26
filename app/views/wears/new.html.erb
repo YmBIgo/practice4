@@ -1,0 +1,30 @@
+<header>
+  <div class="header-content">
+    <% unless current_user.full_profile? %>
+      <div class="new_wear_page">
+        <h3>服の登録をする前に、<br>ユーザー情報の登録をして下さい</h3>
+        <%= link_to "ユーザー情報を編集する", edit_user_path(current_user.id), :class => "btn btn-primary btn-lg scroll-page" %>
+      </div>
+    <% else %>
+      <div class="form-wrapper">
+      <h2>服を登録する</h2>
+      <%= form_for(@wear) do |f| %>
+        <div class="form-item">
+          <%= f.label "服の画像" %>
+          <%= f.file_field :avatar, :class => "form-controll" %>
+        </div>
+        <div class="form-item">
+          <%= f.label "値段(円)/1ヶ月" %>
+          <%= f.number_field :price, :class => "form-control", :value => "100" %>
+        </div>
+        <div class="form-item">
+          <%= f.label "ブランド" %>
+          <%= f.collection_select :brand_id , Brand.all, :id, :name, {}, {:class => "form-control"} %>
+        </div>
+        <% f.hidden_field :user_id %>
+        <%= f.submit "登録する", :class => "btn btn-primary btn-md withripple" %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</header>
