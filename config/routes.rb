@@ -7,11 +7,12 @@ Rails.application.routes.draw do
       get :stations_select
     end
   end
-  resources :users,     only:[:show ,:edit ,:update]
   match 'about',    to: 'static_pages#about'  ,              via:'get'
   match '/usearch', to: 'static_pages#usearch',              via:'get'
+  resources :users,     only:[:show ,:edit ,:update, :destroy]
   resources :stations,  only:[:show]
   resources :wears,     only:[:new, :create, :show, :edit, :update]
+  resources :admin,     only:[:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

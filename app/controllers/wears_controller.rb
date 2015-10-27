@@ -1,6 +1,7 @@
 class WearsController < ApplicationController
 
   before_action :correct_user
+  before_action :editable_user ,only: [:edit, :update]
 
   def new
     @wear = Wear.new
@@ -16,9 +17,13 @@ class WearsController < ApplicationController
   end
 
   def edit
+    @wear = Wear.find(params[:id])
+    @user = @wear.user
   end
 
   def update
+    @wear = Wear.find(params[:id])
+    @wear.update(update_params)
   end
 
   private
@@ -31,7 +36,17 @@ class WearsController < ApplicationController
     end
   end
 
+
+  def editable_user
+    @user = Wear.find(params[:id]).user
+    redirect_to(root_path) unless current_user.admin? || current_user.id == @user.id
+  end
+
   def create_params
+    params.require(:wear).permit(:price, :brand_id, :avatar,:user_id).merge(user_id: current_user.id)
+  end
+
+  def update_params
     params.require(:wear).permit(:price, :brand_id, :avatar,:user_id).merge(user_id: current_user.id)
   end
 end

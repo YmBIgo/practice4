@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :correct_user,  only: [:show, :edit, :update]
+  before_action :editable_user, only: [:edit, :update]
+  before_action :admin_user,    only: [:destroy]
 
   def show
     @user = User.find(params[:id])
@@ -18,7 +20,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(update_params)
+    @user = User.find(params[:id])
+    @user.update(update_params)
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:suceess] = "User destroyed"
+    redirect_to root_path
   end
 
   def stations_select
@@ -33,12 +42,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if !current_user.present?
       redirect_to(root_path)
-    else
     end
+  end
+
+  def editable_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user.admin? || @user.id == current_user.id
   end
 
   def update_params
     params.require(:user).permit(:family_name, :first_name, :station_id, :ward_id, :avatar)
+  end
+
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
   end
 
 end

@@ -1,4 +1,30 @@
 <header>
   <div class="header-content">
+    <div class="wear_info">
+      <h2>編集しました！</h2>
+    </div>
+    <section class="no-padding">
+      <div class="container-fuild">
+        <div class="row no-gutter">
+            <div class="text-center">
+              <a href="/wears/<%= @wear.id %>" class="portfolio-box ">
+              <%= image_tag @wear.avatar.url(:medium), :class => "img-responsive", :alt => "" %>
+                <div class="portfolio-box-caption">
+                  <div class="portfolio-box-caption-content">
+                    <div class="project-category text-faded">
+                      <%= @wear.user.station.name %>駅
+                    </div>
+                    <div class="project-name">
+                      <%= @wear.price %>円/月
+                      <br>
+                      <%= @wear.brand.name %>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+      </div>
+    </section>
   </div>
 </header>
