@@ -41,6 +41,8 @@ gem 'mechanize'
 gem "jquery-turbolinks"
 gem 'frontend-generators'
 
+gem 'aws-sdk', '< 2.0'
+
 # gems for s3
 # gem 'dragonfly'
 # gem 'dragonfly-s3_data_store'
@@ -62,6 +64,7 @@ group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem "meta_request"
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -12,8 +12,8 @@
       <%= form_for(@wear) do |f| %>
         <div class="form-item">
           <%= f.label "服の画像" %>
-          <%= image_tag @wear.avatar.url(:thumb), :class => "img-responsive", :alt => "" %>
-          <%= f.file_field :avatar, :class => "form-controll" %>
+          <%= image_tag @wear.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
+          <%= f.file_field :wimage, :class => "form-controll" %>
         </div>
         <div class="form-item">
           <%= f.label "値段(円)/1ヶ月" %>

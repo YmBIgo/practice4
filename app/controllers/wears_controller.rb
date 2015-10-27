@@ -43,10 +43,10 @@ class WearsController < ApplicationController
   end
 
   def create_params
-    params.require(:wear).permit(:price, :brand_id, :avatar,:user_id).merge(user_id: current_user.id)
+    params.require(:wear).permit(:price, :brand_id, :wimage,:user_id).merge(user_id: current_user.id)
   end
 
   def update_params
-    params.require(:wear).permit(:price, :brand_id, :avatar,:user_id).merge(user_id: current_user.id)
+    params.require(:wear).permit(:price, :brand_id, :wimage,:user_id).merge(user_id: current_user.id)
   end
 end

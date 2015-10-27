@@ -2,7 +2,7 @@
 <div class="col-lg-4 col-sm-4 text-center">
   <div class="portfolio-box">
   <a href="/wears/<%= wear.id %>">
-    <%= image_tag wear.avatar.url(:medium), :class => "img-responsive", :alt => "" %>
+    <%= image_tag wear.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
     <div class="portfolio-box-caption">
       <div class="portfolio-box-caption-content">
         <div class="project-category text-faded">

@@ -14,7 +14,7 @@
         <td><%= w.brand.name %></td>
         <td><%= w.created_at %></td>
         <td><%= w.updated_at %></td>
-        <td><a href="/wears/<%= "#{w.id}" %>"><%= image_tag w.avatar.url(:xsmall) %></a></td>
+        <td><a href="/wears/<%= "#{w.id}" %>"><%= image_tag w.authenticated_image_url(:xsmall) %></a></td>
       </tr>
     <% end %>
   </table>

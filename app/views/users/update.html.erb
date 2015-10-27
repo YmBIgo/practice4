@@ -4,7 +4,7 @@
     <div class="user_update_page">
       <%= link_to "#{@user.family_name}#{@user.first_name}さん", user_path(@user.id), :class => "btn btn-primary btn-lg btn-row" %></h2>
       <div class="user_avatar">
-        <%= image_tag @user.avatar.url(:medium), :class => "img-responsive", :alt => "" %>
+        <%= image_tag @user.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
       </div>
       <h3><strong>編集が完了しました！</strong></h3>
       <%= link_to "トップに戻る",root_path, :class => "btn btn-primary btn-md" %>　<%= link_to "服を登録する", new_wear_path, :class => "btn btn-primary btn-md" %>
