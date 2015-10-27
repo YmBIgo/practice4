@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  before_action :correct_user
+  before_action :correct_user, only:[:usearch]
 
   def usearch
     @users = User.where(:station_id => "#{current_user.station.id}").order("created_at DESC").page(params[:page])

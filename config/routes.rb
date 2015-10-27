@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users,     only:[:show ,:edit ,:update]
+  match 'about',    to: 'static_pages#about'  ,              via:'get'
   match '/usearch', to: 'static_pages#usearch',              via:'get'
   resources :stations,  only:[:show]
   resources :wears,     only:[:new, :create, :show, :edit, :update]

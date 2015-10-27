@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.3'
 # NEED TO SET UP devise/omniauth/jquery
 # NEED TO ADD Amazon S3
 
