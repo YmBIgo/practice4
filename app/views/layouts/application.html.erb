@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>Start Bootstrap Creative</title>
+  <title><%= yield :title %></title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
   <%= stylesheet_link_tag 'creative/manifest.css', media: 'all' %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -24,7 +24,9 @@
   <%= render 'creatives/bg_primary' %>
   <%= render 'creatives/services' %>
   <aside class="bg-dark">
-    <hr class="light">
+    <div class="container">
+      <hr class="light">
+    </div>
   </aside>
   <%= render 'creatives/contact' %>
 

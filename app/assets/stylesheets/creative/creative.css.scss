@@ -4,6 +4,18 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/* Begin Bootstrap */
+
+#container{
+    overflow: hidden;
+}
+
+#container-fluid{
+    overflow: hidden;
+}
+
+/* END Bootstrap */
+
 /* Simple Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -98,6 +110,7 @@ p {
 
 .bg-primary {
     background-color: #f05f40;
+    overflow: hidden;
 }
 
 .bg-dark {
@@ -236,6 +249,8 @@ header .header-content {
     width: 100%;
     padding: 100px 15px;
     text-align: center;
+    /**/
+    overflow: hidden;
 }
 
 header .header-content .header-content-inner h1 {

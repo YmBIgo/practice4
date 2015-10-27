@@ -1,3 +1,4 @@
+<% provide :title, "ようこそ、???へ！" %>
 <% if user_signed_in? %>
   <% if current_user.full_profile? %>
     <%= render 'header' %>
@@ -24,4 +25,5 @@
     <%= render 'call_to_action' %>
   <% end %>
 <% else %>
+  <%= render 'header' %>
 <% end %>
