@@ -20,8 +20,12 @@
   </aside>
   <section class="no-padding">
     <div class="container-fuild">
-      <div class="row no-gutter" id="users">
-        <%= render @wears %>
+      <div class="row no-gutter">
+        <div id="wears">
+          <div class="page">
+            <%= render @wears %>
+          </div>
+        </div>
       </div>
       <%= paginate @wears %>
     </div>

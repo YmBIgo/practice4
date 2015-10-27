@@ -1,1 +1,2 @@
-$("#users").append("<div class='page'><%= escape_javascript(render 'wears/wear_section', w: w) %></div>")
+$("#wears").append("<div class='page'><%= escape_javascript(render(@posts) %></div>")
+$("#users").append("<div class='page'><%= escape_javascript(render(@posts) %></div>")

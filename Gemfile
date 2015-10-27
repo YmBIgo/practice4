@@ -40,6 +40,12 @@ gem 'mechanize'
 gem "jquery-turbolinks"
 gem 'frontend-generators'
 
+# gems for s3
+# gem 'dragonfly'
+# gem 'dragonfly-s3_data_store'
+# gem 's3_file_field'
+# gem 'dotenv-rails', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
