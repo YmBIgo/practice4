@@ -21,7 +21,25 @@
       </div>
   </aside>
   <% if current_user.admin? %>
-    <%= render 'admin/show_wear' %>
+  <br>
+  <div class="text-center">
+    <h2 class="btn btn-primary btn-xl btn_row">登録された服の情報</h2>
+    <br>
+    <br>
+    <table class="table">
+      <tbody>
+        <td>ID</td>
+        <td>UserID</td>
+        <td>Brand</td>
+        <td>Created_at</td>
+        <td>Updated_at</td>
+        <td>avatar</td>
+      </tbody>
+    <% @user.wears.each do |w| %>
+      <%= render 'admin/show_wear', w: w %>
+    <% end %>
+    </table>
+  </div>
   <% end %>
   <section class="no-padding">
     <div class="container-fuild">

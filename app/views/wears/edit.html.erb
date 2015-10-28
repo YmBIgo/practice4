@@ -8,20 +8,30 @@
       </div>
     <% else %>
       <div class="form-wrapper">
-      <h2>服を編集</h2>
+      <h2><strong>服を編集</strong></h2>
       <%= form_for(@wear) do |f| %>
         <div class="form-item">
           <%= f.label "服の画像" %>
-          <%= image_tag @wear.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
+          <%= image_tag @wear.authenticated_image_url(:thumb  ), :class => "img-responsive", :alt => "", :style => "margin:5px auto;" %>
           <%= f.file_field :wimage, :class => "form-controll" %>
         </div>
         <div class="form-item">
-          <%= f.label "値段(円)/1ヶ月" %>
-          <%= f.number_field :price, :class => "form-control", :value => @wear.price %>
-        </div>
-        <div class="form-item">
-          <%= f.label "ブランド" %>
-          <%= f.collection_select :brand_id , Brand.all, :id, :name, {:selected => @wear.brand.id}, {:class => "form-control"} %>
+          <div class="row">
+            <div class="col-sm-6 col-xs-6">
+              <%= f.label "値段(円)/1ヶ月" %>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+              <%= f.label "ブランド" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-xs-6">
+              <%= f.number_field :price, :class => "form-control", :value => @wear.price %>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+              <%= f.collection_select :brand_id , Brand.all, :id, :name, {:selected => @wear.brand.id}, {:class => "form-control"} %>
+            </div>
+          </div>
         </div>
         <% f.hidden_field :user_id %>
         <%= f.submit "編集する", :class => "btn btn-primary btn-md withripple" %>

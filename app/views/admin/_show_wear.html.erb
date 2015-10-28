@@ -1,21 +1,8 @@
-<br>
-<div class="text-center">
-  <table class="table">
-    <tbody>
-      <td>ID</td>
-      <td>Brand</td>
-      <td>Created_at</td>
-      <td>Updated_at</td>
-      <td>avatar</td>
-    </tbody>
-    <% @user.wears.each do |w| %>
-      <tr>
-        <td><%= w.id %></td>
-        <td><%= w.brand.name %></td>
-        <td><%= w.created_at %></td>
-        <td><%= w.updated_at %></td>
-        <td><a href="/wears/<%= "#{w.id}" %>"><%= image_tag w.authenticated_image_url(:xsmall) %></a></td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<tr>
+  <td><%= link_to w.id, wear_path(w.id) %></td>
+  <td><%= link_to w.user.id, user_path(w.user.id) %></td>
+  <td><%= w.brand.name %></td>
+  <td><%= w.created_at %></td>
+  <td><%= w.updated_at %></td>
+  <td><a href="/wears/<%= "#{w.id}" %>"><%= image_tag w.authenticated_image_url(:xsmall) %></a></td>
+</tr>

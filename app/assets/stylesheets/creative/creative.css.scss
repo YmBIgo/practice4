@@ -277,7 +277,8 @@ header .header-content .header-content-inner p {
       background: rgba(220,220,220,.8);
       margin: 0 auto;
       padding: 0 2px 1em 1em;
-      width: 370px;
+      min-width: 370px;
+      max-width:500px;
       min-height:300px;
       border-radius:50px;
     }
