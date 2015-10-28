@@ -9,9 +9,12 @@
           <p><%= wear.user.station.name %>駅</p>
         </div>
         <div class="project-name">
-          <p><%= wear.price %>円/月
-            <br>
-          <%= wear.brand.name %></p>
+          <p>
+            <%= wear.price %>円
+            <%= wear.month_price %>円/月
+              <br>
+            <%= wear.brand.name %>
+          </p>
         </div>
       </div>
     </div>

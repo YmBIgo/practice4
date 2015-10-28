@@ -18,10 +18,10 @@
         <div class="form-item">
           <div class="row">
             <div class="col-sm-6 col-xs-6">
-              <%= f.label "値段(円)/1ヶ月" %>
+              <%= f.label "値段" %>
             </div>
             <div class="col-sm-6 col-xs-6">
-              <%= f.label "ブランド" %>
+              <%= f.label "値段(円)/1ヶ月" %>
             </div>
           </div>
           <div class="row">
@@ -29,9 +29,11 @@
               <%= f.number_field :price, :class => "form-control", :value => @wear.price %>
             </div>
             <div class="col-sm-6 col-xs-6">
-              <%= f.collection_select :brand_id , Brand.all, :id, :name, {:selected => @wear.brand.id}, {:class => "form-control"} %>
+              <%= f.number_field :month_price, :class => "form-control", :value => @wear.month_price %>
             </div>
           </div>
+          <%= f.label "ブランド" %>
+          <%= f.collection_select :brand_id , Brand.all, :id, :name, {:selected => @wear.brand.id}, {:class => "form-control"} %>
         </div>
         <% f.hidden_field :user_id %>
         <%= f.submit "編集する", :class => "btn btn-primary btn-md withripple" %>

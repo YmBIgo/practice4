@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "creatives#index"
   # match '/wsearch', to: 'static_pages#wsearch',     via: 'get'
+
   resources :users do
     collection do
       get :stations_select
     end
   end
+
   match 'about',    to: 'static_pages#about'  ,              via:'get'
   match '/usearch', to: 'static_pages#usearch',              via:'get'
   resources :users,     only:[:show ,:edit ,:update, :destroy]

@@ -33,4 +33,14 @@ class User < ActiveRecord::Base
     family_name? && first_name? && station_id? && ward_id? && image?
   end
 
+  def sum_price(c)
+    sum = 0
+      if c.wears.present?
+        c.wears.each do |p|
+          sum+=p.price
+        end
+      end
+
+    return sum
+  end
 end

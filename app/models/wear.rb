@@ -21,7 +21,7 @@ class Wear < ActiveRecord::Base
   validates_attachment_content_type :wimage, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   # validation
-  validates_presence_of :price, :wimage, :brand_id, :user_id
+  validates_presence_of :price, :month_price, :wimage, :brand_id, :user_id
 
   def authenticated_image_url(style)
     wimage.s3_object(style).url_for(:read, :secure => true)

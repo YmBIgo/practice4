@@ -8,7 +8,11 @@ class AdminController < ApplicationController
   private
 
   def admin_user
-    redirect_to(root_path) unless current_user.admin?
+    if current_user.present?
+      redirect_to(root_path) unless current_user.admin?
+    else
+      redirect_to(root_path)
+    end
   end
 
 end

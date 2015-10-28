@@ -1,6 +1,8 @@
 <tr>
   <td><%= link_to w.id, wear_path(w.id) %></td>
   <td><%= link_to w.user.id, user_path(w.user.id) %></td>
+  <td><%= w.price %></td>
+  <td><%= w.month_price %></td>
   <td><%= w.brand.name %></td>
   <td><%= w.created_at %></td>
   <td><%= w.updated_at %></td>
