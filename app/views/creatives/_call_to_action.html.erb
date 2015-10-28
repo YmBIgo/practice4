@@ -3,10 +3,6 @@
     <div class="container text-center">
         <div class="call-to-action">
           <% if current_user==nil %>
-            <h2>服を一緒に使おう！</h2>
-            <hr class="light">
-            <a href="/users/sign_up" class="btn btn-default btn-xl wow tada btn_row">登録する</a>
-            <a href="#about" class="btn btn-default btn-xl wow tada page-scroll">詳しく！</a>
           <% else %>
             <h2>クローゼットを作ろう！</h2>
             <a href="/wears/new" class="btn btn-default btn-xl wow tada">服を登録する</a>
