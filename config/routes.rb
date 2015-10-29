@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   match 'about',    to: 'static_pages#about'  ,              via:'get'
-  match '/usearch', to: 'static_pages#usearch',              via:'get'
+  match 'usearch', to: 'static_pages#usearch',              via:'get'
   resources :users,     only:[:show ,:edit ,:update, :destroy]
   resources :stations,  only:[:show]
   resources :wears,     only:[:new, :create, :show, :edit, :update]

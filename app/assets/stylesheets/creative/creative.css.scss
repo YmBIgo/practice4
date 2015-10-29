@@ -132,7 +132,16 @@ aside {
 
 /* BEGIN SubHeader PAGE */
     .sub_header{
-        background-image: asset-data-url("creative/sub_header.jpg");
+            position: relative;
+            width: 100%;
+            min-height: auto;
+            text-align: center;
+            background-image: asset-data-url("creative/sub_header.jpg");
+            background-position: center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
     }
 /* END SubHeader PAGE */
 

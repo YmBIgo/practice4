@@ -4,12 +4,50 @@
   <div class="container text-center">
     <% if current_user!=nil %>
       <% if user_signed_in? %>
-        <h1 class="btn btn-default wow btn-xl"><%= Station.find(current_user.station.id).name %>駅(<%= Station.find(current_user.station.id).ward.name %>)の人</h1>
+        <h1 class="btn btn-default wow btn-xl"><%= Station.find(@station.id).name %>駅(<%= @station.ward.name %>)の人</h1>
         <br>
       <% end %>
     <% end %>
   </div>
 </aside>
+
+<% if current_user.admin? %>
+<div class="text-center">
+  <h2 class="btn btn-primary btn-xl btn_row"><%= @station.name %>駅の人の情報</h2>
+  <br>
+  <table class="table" style="width:1500px">
+    <thead>
+      <td>ID</td>
+      <td>名前</td>
+      <td>Email</td>
+      <td>服の数</td>
+      <td>ログイン</td>
+      <td>Station</td>
+      <td>Ward</td>
+      <td>Created_at</td>
+      <td>Updated_at</td>
+      <td>サクジョ</td>
+    </thead>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= link_to "#{u.id}",user_path(u.id) %></td>
+        <td><%= link_to "#{u.family_name}#{u.first_name}",user_path(u.id) %></td>
+        <td><%= u.email %></td>
+        <td><%= u.wears.count %></td>
+        <td><%= u.sign_in_count %></td>
+        <td><%= link_to "#{u.station.name}",station_path(u.station.id) %></td>
+        <td><%= "#{u.ward.name}" %></td>
+        <td><%= u.created_at %></td>
+        <td><%= u.updated_at %></td>
+        <td><%= link_to "delete", user_path(u.id), method: :delete, :class => "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+    <%= paginate @users %>
+  </table>
+</div>
+
+<% end %>
+
 <section class="no-padding">
   <div class="container-fuild">
     <div class="row no-gutter">

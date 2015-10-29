@@ -3,7 +3,7 @@
   <div class="header-content">
     <% unless @user.full_profile? %>
       <div class="new_wear_page">
-        <h3>服の登録をする前に、<br>ユーザー情報の登録をして下さい</h3>
+        <h3><strong>服の登録をする前に、<br>ユーザー情報の登録をして下さい</strong></h3>
         <%= link_to "ユーザー情報を編集する", edit_user_path(@user.id), :class => "btn btn-primary btn-lg scroll-page" %>
       </div>
     <% else %>
@@ -32,8 +32,10 @@
               <%= f.number_field :month_price, :class => "form-control", :value => @wear.month_price %>
             </div>
           </div>
-          <%= f.label "ブランド" %>
-          <%= f.collection_select :brand_id , Brand.all, :id, :name, {:selected => @wear.brand.id}, {:class => "form-control"} %>
+          <div class="form-item">
+            <%= f.label "ブランド" %>
+            <%= f.collection_select :brand_id , Brand.all, :id, :name, {:selected => @wear.brand.id}, {:class => "form-control"} %>
+          </div>
         </div>
         <% f.hidden_field :user_id %>
         <%= f.submit "編集する", :class => "btn btn-primary btn-md withripple" %>

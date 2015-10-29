@@ -3,7 +3,7 @@
   <div class="container text-center">
     <div class="station_page">
       <h1 class="btn btn-default btn-xl"><%= @station.name %>駅の服</h1><br>
-      <%= link_to "この駅の利用しているユーザーを探す", usearch_path, :class =>"btn btn-default btn-xl btn_row" %>
+      <a href="/usearch?statid=<%= @station.id %>" class="btn btn-default btn-xl btn_row">この駅の利用しているユーザーを探す</a>
     </div>
   </div>
 </aside>

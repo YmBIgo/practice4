@@ -2,10 +2,10 @@
   <div class="header-content">
     <div class="user_update_page">
       <% if @wear.valid? %>
-        <h3>登録しました</h3>
+        <h3><strong>登録しました</strong></h3>
         <%= link_to "トップに戻る",root_path, :class => "btn btn-primary btn-md page-scroll btn_row" %>
       <% else %>
-        <h3>登録できませんでした</h3>
+        <h3><strong>登録できませんでした</strong></h3>
         <%= link_to "戻る", new_wear_path, :class => "btn btn-primary btn-md page-scroll btn_row" %>
       <% end %>
     </div>

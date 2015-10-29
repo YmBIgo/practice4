@@ -1,13 +1,20 @@
 <% provide :title, "編集が完了しました" %>
 <header>
   <div class="header-content">
-    <div class="user_update_page">
-      <%= link_to "#{@user.family_name}#{@user.first_name}さん", user_path(@user.id), :class => "btn btn-primary btn-lg btn-row" %></h2>
-      <div class="user_avatar">
-        <%= image_tag @user.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
+    <% if @user.full_profile? %>
+      <div class="user_update_page">
+        <%= link_to "#{@user.family_name}#{@user.first_name}さん", user_path(@user.id), :class => "btn btn-primary btn-lg btn-row" %></h2>
+        <div class="user_avatar">
+          <%= image_tag @user.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
+        </div>
+        <h3><strong>編集が完了しました！</strong></h3>
+        <%= link_to "トップに戻る",root_path, :class => "btn btn-primary btn-md" %>　<%= link_to "服を登録する", new_wear_path, :class => "btn btn-primary btn-md" %>
       </div>
-      <h3><strong>編集が完了しました！</strong></h3>
-      <%= link_to "トップに戻る",root_path, :class => "btn btn-primary btn-md" %>　<%= link_to "服を登録する", new_wear_path, :class => "btn btn-primary btn-md" %>
-    </div>
+    <% else %>
+      <div class="user_update_page">
+        <h3><strong>登録できませんでした</strong></h3>
+        <%= link_to "戻る", edit_user_path(@user.id),:class => "btn btn-primary btn-md page-scroll btn_row" %>
+      </div>
+    <% end %>
   </div>
 </header>

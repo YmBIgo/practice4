@@ -25,23 +25,13 @@ class User < ActiveRecord::Base
                     :path => ":attachment/:id/:style.:extension"
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  validates_presence_of :family_name, :first_name, :image, :ward_id, :station_id
 
   def authenticated_image_url(style)
     image.s3_object(style).url_for(:read, :secure => true)
   end
+
   def full_profile?
     family_name? && first_name? && station_id? && ward_id? && image?
   end
 
-  def sum_price(c)
-    sum = 0
-      if c.wears.present?
-        c.wears.each do |p|
-          sum+=p.price
-        end
-      end
-
-    return sum
-  end
 end

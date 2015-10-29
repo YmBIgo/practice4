@@ -15,15 +15,31 @@
           <%= f.file_field :wimage, :class => "form-controll" %>
         </div>
         <div class="form-item">
-          <%= f.label "値段(円)/1ヶ月" %>
-          <%= f.number_field :price, :class => "form-control", :value => "100" %>
+          <%= f.label "ブランド" %>
+          <%= f.collection_select :brand_id , Brand.all, :id, :name, {:class => "form-control"} %>
         </div>
         <div class="form-item">
-          <%= f.label "ブランド" %>
-          <%= f.collection_select :brand_id , Brand.all, :id, :name, {}, {:class => "form-control"} %>
-        </div>
+          <div class="row">
+            <div class="col-sm-6 col-xs-6">
+              <%= f.label "値段" %>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+              <%= f.label "値段(円)/1ヶ月" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-xs-6">
+              <%= f.number_field :price, :class => "form-control", :value => 100 %>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+              <%= f.number_field :month_price, :class => "form-control", :value => 100 %>
+            </div>
+          </div>
+          <br>
         <% f.hidden_field :user_id %>
-        <%= f.submit "登録する", :class => "btn btn-primary btn-md withripple" %>
+        <div class="actions">
+          <%= f.submit "登録する", :class => "btn btn-primary btn-md" %>
+        </div>
       <% end %>
       </div>
     <% end %>
