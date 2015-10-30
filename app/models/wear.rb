@@ -1,3 +1,5 @@
+require 'elasticsearch/model'
+
 class Wear < ActiveRecord::Base
   # association
   belongs_to :user
