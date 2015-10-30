@@ -103,3 +103,4 @@ class Wear < ActiveRecord::Base
     __elasticsearch__.search(search_definition)
   end
 end
+Wear.import
