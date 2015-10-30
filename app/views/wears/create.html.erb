@@ -3,6 +3,30 @@
     <div class="user_update_page">
       <% if @wear.valid? %>
         <h3><strong>登録しました</strong></h3>
+        <section class="no-padding">
+          <div class="container-fuild">
+            <div class="row no-gutter">
+                <div class="text-center">
+                  <a href="/wears/<%= @wear.id %>" class="portfolio-box ">
+                  <%= image_tag @wear.authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
+                    <div class="portfolio-box-caption">
+                      <div class="portfolio-box-caption-content">
+                        <div class="project-category text-faded">
+                          <%= @wear.user.station.name %>駅
+                        </div>
+                        <div class="project-name">
+                          <%= @wear.month_price %>円/月
+                          <%= @wear.price %>円
+                          <br>
+                          <%= @wear.brand.name %>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+            </div>
+          </div>
+        </section>
         <%= link_to "トップに戻る",root_path, :class => "btn btn-primary btn-md page-scroll btn_row" %>
       <% else %>
         <h3><strong>登録できませんでした</strong></h3>

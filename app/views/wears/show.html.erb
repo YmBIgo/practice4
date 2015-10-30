@@ -2,7 +2,6 @@
   <div class="header-content">
     <div class="new_wear_page">
       <%= link_to "#{@wear.user.family_name} #{@wear.user.first_name}さん", user_path(@wear.user.id), :class => "btn btn-primary btn-lg btn_row" %>
-      <%= link_to "#{@user.station.name}駅",station_path(@user.station.id), :class => "btn btn-primary btn-sm btn_row" %>
       <div class="wear_info">
         <h3><%= @wear.price %>円：<%= @wear.month_price %>円/月<br><%= @wear.brand.name %></h3>
       </div>

@@ -1,23 +1,27 @@
-<div class="user">
+<div class="wear">
 <div class="col-lg-4 col-sm-4 text-center">
   <div class="portfolio-box">
-  <a href="/wears/<%= w.id %>">
-    <%= image_tag w.avatar.url(:medium), :class => "img-responsive", :alt => "" %>
+  <a href="/wears/<%= wear.id %>">
+    <%= image_tag Wear.find(wear.id).authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
     <div class="portfolio-box-caption">
       <div class="portfolio-box-caption-content">
         <div class="project-category text-faded">
-          <p><%= w.user.station.name %>駅</p>
+          <p><%= wear.user.station.name %>駅</p>
         </div>
         <div class="project-name">
-          <p><%= w.price %>円/月
-            <br>
-          <%= w.brand.name %></p>
+          <p>
+            <%= wear.price %>円
+            <%= wear.month_price %>円/月
+              <br>
+            <%= wear.brand.name %>
+          </p>
         </div>
       </div>
     </div>
   </a>
   </div>
-  <p class="under_portfolio_box"><%= link_to "#{w.user.family_name}#{w.user.first_name}",user_path(w.user.id) %>　<%= link_to "#{w.user.station.name}駅",station_path(w.user.station.id) %>
-  <br><%= link_to "#{w.brand.name}：#{w.price}円/月",wear_path(w.id) %></p>
+  <% binding-pry %>
+  <p class="under_portfolio_box"><%= link_to "#{Wear.find(wear.id).user.family_name}#{Wear.find(wear.id).user.first_name}",user_path(wear.user.id) %>　<%= link_to "#{wear.user.station.name}駅",station_path(wear.user.station.id) %>
+  <br><%= link_to "#{wear.brand.name}：#{wear.price}円/月",wear_path(wear.id) %></p>
 </div>
 </div>

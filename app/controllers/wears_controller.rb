@@ -3,6 +3,10 @@ class WearsController < ApplicationController
   before_action :correct_user
   before_action :editable_user ,only: [:edit, :update]
 
+  def index
+    @wears = Wear.search(params)
+  end
+
   def new
     @wear = Wear.new
   end

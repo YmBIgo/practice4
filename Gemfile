@@ -43,6 +43,11 @@ gem 'frontend-generators'
 
 gem 'aws-sdk', '< 2.0'
 
+gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem 'elasticsearch-dsl', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+
 # gems for s3
 # gem 'dragonfly'
 # gem 'dragonfly-s3_data_store'

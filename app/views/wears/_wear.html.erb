@@ -20,7 +20,6 @@
     </div>
   </a>
   </div>
-  <p class="under_portfolio_box"><%= link_to "#{wear.user.family_name}#{wear.user.first_name}",user_path(wear.user.id) %>　<%= link_to "#{wear.user.station.name}駅",station_path(wear.user.station.id) %>
-  <br><%= link_to "#{wear.brand.name}：#{wear.price}円/月",wear_path(wear.id) %></p>
+  <h3><%= link_to "#{wear.brand.name}：#{wear.price}円/月",wear_path(wear.id) %></h3>
 </div>
 </div>

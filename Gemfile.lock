@@ -1,3 +1,27 @@
+GIT
+  remote: git://github.com/elasticsearch/elasticsearch-rails.git
+  revision: ddc472623ae7cc2e262007cdc04e79c3d075962b
+  specs:
+    elasticsearch-model (0.1.8)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.8)
+
+GIT
+  remote: git://github.com/elasticsearch/elasticsearch-ruby.git
+  revision: fe4500d24b318ff8428808c9e6e00f71f219d13f
+  specs:
+    elasticsearch (1.0.14)
+      elasticsearch-api (= 1.0.14)
+      elasticsearch-transport (= 1.0.14)
+    elasticsearch-api (1.0.14)
+      multi_json
+    elasticsearch-dsl (0.1.2)
+    elasticsearch-transport (1.0.14)
+      faraday
+      multi_json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -289,6 +313,10 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails
+  elasticsearch!
+  elasticsearch-dsl!
+  elasticsearch-model!
+  elasticsearch-rails!
   frontend-generators
   jbuilder (~> 2.0)
   jquery-rails

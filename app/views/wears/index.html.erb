@@ -1,0 +1,81 @@
+<% provide :title, "服を検索する" %>
+<header>
+  <div class="header-content">
+    <div class="form-wrapper">
+      <i class="fa fa-4x fa-users wow bounceIn text-primary" style="margin-top:10px"></i>
+      <h2 style="margin:0 auto"><strong>服を検索する</strong></h2>
+      <br>
+      <%= form_tag wears_path, method: :get, enforce_utf8: false do %>
+      <div class="form-item">
+          <%= search_field_tag :q, params[:q], :class => 'form-control', placeholder: 'ブランド、駅名、区名' %>
+      </div>
+      <div class="checkbox">
+        <label style="color:#222">
+          <%= check_box_tag :rent_or_not, 't', params[:closed].present? %>貸しだされている服も検索結果に含める
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">検索</button>
+    <% end %>
+    </div>
+  </div>
+</header>
+<% if current_user.admin? %>
+  <br>
+  <div class="text-center">
+    <h2 class="btn btn-primary btn-xl btn_row">登録された服の情報</h2>
+    <br>
+    <br>
+    <table class="table">
+      <tbody>
+        <td>ID</td>
+        <td>UserID</td>
+        <td>Brand</td>
+        <td>Price</td>
+        <td>MPrice</td>
+        <td>Created_at</td>
+        <td>Updated_at</td>
+        <td>avatar</td>
+      </tbody>
+    <% @wears.each do |w| %>
+      <%= render 'admin/show_wear', w: w %>
+    <% end %>
+    </table>
+  </div>
+  <hr>
+<% end %>
+  <br>
+<section class="no-padding">
+  <div class="container-fuild">
+    <div class="row no-gutter">
+      <div id="wears">
+        <% @wears.each do |wear| %>
+          <div class="wear">
+          <div class="col-lg-4 col-sm-4 text-center">
+            <div class="portfolio-box">
+            <a href="/wears/<%= wear.id %>">
+              <%= image_tag Wear.find(wear.id).authenticated_image_url(:medium), :class => "img-responsive", :alt => "" %>
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    <p><%= wear.user.station.name %>駅</p>
+                  </div>
+                  <div class="project-name">
+                    <p>
+                      <%= wear.price %>円：<%= wear.month_price %>円/月
+                        <br>
+                      <%= wear.brand.name %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            </div>
+              <h4><%= link_to "#{wear.brand.name}：#{wear.price}円：#{wear.month_price}円/月",wear_path(wear.id) %></h4>
+          </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= paginate @wears %>
+</section>
